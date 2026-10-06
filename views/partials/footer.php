@@ -1,0 +1,1 @@
+<footer class="container-fluid px-4 pb-4"><div class="border-top pt-3 text-secondary small">UMKM Toolkit · Native PHP <?=PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION?> · PDO · Bootstrap</div></footer>

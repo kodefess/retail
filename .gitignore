@@ -1,0 +1,21 @@
+# Generated .gitignore file
+# Created with Gitie
+
+# PHP
+# Composer files
+composer.phar
+/vendor/
+
+# Local configs
+config/autoload/*.local.php
+
+# Binary gettext files
+*.mo
+
+# Data
+data/logs/
+data/cache/
+data/sessions/
+data/tmp/
+temp/
+
