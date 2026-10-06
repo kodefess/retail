@@ -1,5 +1,4 @@
-# Generated .gitignore file
-# Created with Gitie
+# Generated .gitignore file Gitie (gitie.vercel.app)
 
 # PHP
 # Composer files
@@ -12,10 +11,13 @@ config/autoload/*.local.php
 # Binary gettext files
 *.mo
 
+# env
+.env
+.env.local
+
 # Data
 data/logs/
 data/cache/
 data/sessions/
 data/tmp/
 temp/
-
