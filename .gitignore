@@ -14,10 +14,3 @@ config/autoload/*.local.php
 # env
 .env
 .env.local
-
-# Data
-data/logs/
-data/cache/
-data/sessions/
-data/tmp/
-temp/
