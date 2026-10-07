@@ -1,7 +1,8 @@
 <div class="page-head no-print">
   <div><h1>Laporan</h1><p><?= e(tgl($from)) ?> &ndash; <?= e(tgl($to)) ?></p></div>
   <div class="d-flex gap-2">
-    <a class="btn btn-soft" href="/reports/export?from=<?= e($from) ?>&to=<?= e($to) ?>"><i class="bi bi-filetype-csv me-1"></i>Unduh CSV</a>
+    <a class="btn btn-primary" href="/reports/export-excel?from=<?= e($from) ?>&to=<?= e($to) ?>"><i class="bi bi-file-earmark-excel me-1"></i>Unduh Excel</a>
+    <a class="btn btn-soft" href="/reports/export?from=<?= e($from) ?>&to=<?= e($to) ?>"><i class="bi bi-filetype-csv me-1"></i>CSV</a>
     <button class="btn btn-soft" onclick="window.print()"><i class="bi bi-printer me-1"></i>Cetak</button>
   </div>
 </div>
@@ -40,23 +41,26 @@
 
 <div class="row g-3">
   <div class="col-xl-7">
-    <div class="card h-100">
+    <div class="card panel-fixed">
       <div class="card-header d-flex justify-content-between">
         <h2 class="card-title">Penjualan harian</h2>
         <span class="small text-secondary"><span class="num"><?= $summary['count'] ?></span> transaksi &middot; rata-rata <span class="num"><?= money($summary['avg']) ?></span></span>
       </div>
-      <div class="card-body">
+      <div class="panel-body">
         <?php if ($daily): ?>
-          <div class="chart-box sm"><canvas id="reportChart" data-rows="<?= e(json_encode($daily)) ?>"></canvas></div>
+          <div class="chart-box fill"><canvas id="reportChart" data-rows="<?= e(json_encode($daily)) ?>"></canvas></div>
         <?php else: ?><div class="empty"><i class="bi bi-bar-chart"></i>Belum ada penjualan di periode ini.</div><?php endif; ?>
       </div>
     </div>
   </div>
 
   <div class="col-xl-5">
-    <div class="card h-100">
-      <div class="card-header"><h2 class="card-title">Produk terlaris</h2></div>
-      <div class="table-responsive">
+    <div class="card panel-fixed">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h2 class="card-title">Produk terlaris</h2>
+        <span class="small text-secondary"><?= count($topProducts) ?> produk</span>
+      </div>
+      <div class="panel-scroll">
         <table class="table">
           <thead><tr><th class="ps-4">Produk</th><th class="text-end">Qty</th><th class="text-end">Omzet</th><th class="text-end pe-4">Laba</th></tr></thead>
           <tbody>

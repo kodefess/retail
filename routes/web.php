@@ -75,5 +75,6 @@ $r->post('/cash/{id}/delete',   [$cash, 'destroy']);
 // --- Laporan ---
 $r->get('/reports',        [$reports, 'index']);
 $r->get('/reports/export', [$reports, 'export']);
+$r->get('/reports/export-excel', [$reports, 'exportExcel']);
 
 return $r;

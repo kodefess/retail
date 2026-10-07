@@ -65,6 +65,13 @@ class ReportController
         exit;
     }
 
+    /** Unduh laporan lengkap sebagai file Excel (.xlsx) yang sudah dirapikan. */
+    public function exportExcel(): void
+    {
+        [$from, $to] = $this->period();
+        (new \App\Services\ExcelReport($from, $to, \App\Auth::user()['business']))->download();
+    }
+
     private function period(): array
     {
         $from = input('from', date('Y-m-01'));
